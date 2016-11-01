@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import <CoreLocation/CoreLocation.h>
 
+@class MKMapView;
+@class PHMapAnnotation;
+@interface ViewController : UIViewController <CLLocationManagerDelegate>{
+    CLLocationManager *locationManager;
+
+}
+
+@property(nonatomic) BOOL hasBeenUpdated;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) NSMutableDictionary *locationDictionary;
+
+-(IBAction)setMap:(id)sender;
+-(IBAction)getLocation:(id)sender;
 
 @end
 
